@@ -57,7 +57,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BLOCK_IDS.OPERATION,
+    id: BLOCKIDS.OPERATION,
     title: "Bloque 2: Durante la Operación (Presencia)",
     tasks: [
       { id: "2.1", label: "Supervisión directa en maniobras críticas/izajes" },
@@ -79,7 +79,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockIDS.LEADERSHIP,
+    id: Block_IDS.LEADERSHIP,
     title: "Bloque 4: Personas y Decisiones (Liderazgo)",
     tasks: [
       { id: "4.1", label: "Confirmación de competencias críticas del personal" },
@@ -90,7 +90,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockIDS.CLOSURE,
+    id: Block_IDS.CLOSURE,
     title: "Bloque 5: Cierre del Turno (Evidencia)",
     tasks: [
       { id: "5.1", label: "Registro exacto de tiempos no productivos (NPT)" },
