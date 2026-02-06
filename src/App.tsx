@@ -41,7 +41,7 @@ export const BLOCK_IDS = {
   CLOSURE: 'CLOSURE',
 } as const;
 
-export type BlockId = typeof BLOCK_IDS[keyof typeof BLOCK_IDS];
+export type BlockId = (typeof BLOCK_IDS)[keyof typeof BLOCK_IDS];
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
