@@ -40,13 +40,13 @@ export type BlockId =
   | 'LEADERSHIP'
   | 'CLOSURE';
 
-  export const BlockId = {
-    PRE_SHIFT: 'PRE_SHIFT',
-    OPERATION: 'OPERATION',
-    TECHNICAL: 'TECHNICAL',
-    LEADERSHIP: 'LEADERSHIP',
-    CLOSURE: 'CLOSURE',
-  };
+export const BlockId = {
+  PRE_SHIFT: 'PRE_SHIFT',
+  OPERATION: 'OPERATION',
+  TECHNICAL: 'TECHNICAL',
+  LEADERSHIP: 'LEADERSHIP',
+  CLOSURE: 'CLOSURE',
+};
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
