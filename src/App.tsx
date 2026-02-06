@@ -40,20 +40,20 @@ export type BlockId =
   | 'LEADERSHIP'
   | 'CLOSURE';
 
-  export const BlockId = {
+  export const BLOCK_IDS = {
     PRE_SHIFT: 'PRE_SHIFT',
     OPERATION: 'OPERATION',
     TECHNICAL: 'TECHNICAL',
     LEADERSHIP: 'LEADERSHIP',
     CLOSURE: 'CLOSURE',
-  };
+  } as const;
   
-  export type BlockIdType = keyof typeof BlockId;
+  export type BlockId = typeof BLOCK_IDS[keyof typeof BLOCK_IDS];
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
   {
-    id: BlockId.PRE_SHIFT,
+    id: BLOCK_IDS.PRE_SHIFT,
     title: "Bloque 1: Antes del Turno (Riesgo)",
     tasks: [
       { id: "1.1", label: "Charla pre-operacional con foco en peligros del día" },
@@ -64,7 +64,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockId.OPERATION,
+    id: BLOCK_IDS.OPERATION,
     title: "Bloque 2: Durante la Operación (Presencia)",
     tasks: [
       { id: "2.1", label: "Supervisión directa en maniobras críticas/izajes" },
@@ -75,7 +75,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockId.TECHNICAL,
+    id: BLOCK_IDS.TECHNICAL,
     title: "Bloque 3: Técnica del Pozo (No Negociables)",
     tasks: [
       { id: "3.1", label: "Integridad de barreras mecánicas y de presión" },
