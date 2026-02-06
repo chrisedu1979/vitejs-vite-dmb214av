@@ -33,22 +33,15 @@ export interface ShiftData {
   operationType: OperationType;
 }
 
-export type BlockId =
-  | 'PRE_SHIFT'
-  | 'OPERATION'
-  | 'TECHNICAL'
-  | 'LEADERSHIP'
-  | 'CLOSURE';
+export const BLOCK_IDS = {
+  PRE_SHIFT: 'PRE_SHIFT',
+  OPERATION: 'OPERATION',
+  TECHNICAL: 'TECHNICAL',
+  LEADERSHIP: 'LEADERSHIP',
+  CLOSURE: 'CLOSURE',
+} as const;
 
-  export const BLOCK_IDS = {
-    PRE_SHIFT: 'PRE_SHIFT',
-    OPERATION: 'OPERATION',
-    TECHNICAL: 'TECHNICAL',
-    LEADERSHIP: 'LEADERSHIP',
-    CLOSURE: 'CLOSURE',
-  } as const;
-  
-  export type BlockId = typeof BLOCK_IDS[keyof typeof BLOCK_IDS];
+export type BlockId = typeof BLOCK_IDS[keyof typeof BLOCK_IDS];
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
@@ -86,7 +79,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockId.LEADERSHIP,
+    id: BlockIDS.LEADERSHIP,
     title: "Bloque 4: Personas y Decisiones (Liderazgo)",
     tasks: [
       { id: "4.1", label: "Confirmación de competencias críticas del personal" },
@@ -97,7 +90,7 @@ export const INITIAL_BLOCKS: Block[] = [
     ]
   },
   {
-    id: BlockId.CLOSURE,
+    id: BlockIDS.CLOSURE,
     title: "Bloque 5: Cierre del Turno (Evidencia)",
     tasks: [
       { id: "5.1", label: "Registro exacto de tiempos no productivos (NPT)" },
@@ -221,7 +214,7 @@ const App: React.FC = () => {
     localStorage.setItem('current_shift', JSON.stringify(shiftData));
   }, [shiftData]);
 
-  const updateTaskStatus = (blockId: string, taskId: string, status: TaskStatus) => {
+  const updateTaskStatus = (blockId: BlockId, taskId: string, status: TaskStatus) => {
     if (shiftData.isClosed) return;
     setShiftData(prev => ({
       ...prev,
@@ -233,7 +226,7 @@ const App: React.FC = () => {
     }));
   };
 
-  const updateTaskNote = (blockId: string, taskId: string, note: string) => {
+  const updateTaskNote = (blockId: BlockId, taskId: string, note: string) => {
     if (shiftData.isClosed) return;
     setShiftData(prev => ({
       ...prev,
@@ -258,7 +251,7 @@ const App: React.FC = () => {
   }, [shiftData.blocks]);
 
   const handleCloseShift = async () => {
-    const closureBlock = shiftData.blocks.find(b => b.id === BlockId.CLOSURE);
+    const closureBlock = shiftData.blocks.find(b => b.id === BLOCK_IDS.CLOSURE);
     const allClosureDone = closureBlock?.tasks.every(t => t.status !== undefined);
     
     if (!allClosureDone) {
