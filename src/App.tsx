@@ -13,7 +13,7 @@ export interface Task {
 }
 
 export interface Block {
-  id: string;
+  id: BlockId;
   title: string;
   tasks: Task[];
 }
@@ -33,13 +33,15 @@ export interface ShiftData {
   operationType: OperationType;
 }
 
-export enum BlockId {
-  PRE_SHIFT = 'PRE_SHIFT',
-  OPERATION = 'OPERATION',
-  TECHNICAL = 'TECHNICAL',
-  LEADERSHIP = 'LEADERSHIP',
-  CLOSURE = 'CLOSURE'
-}
+export const BlockId = {
+  PRE_SHIFT: 'PRE_SHIFT',
+  OPERATION: 'OPERATION',
+  TECHNICAL: 'TECHNICAL',
+  LEADERSHIP: 'LEADERSHIP',
+  CLOSURE: 'CLOSURE'
+} as const;
+
+export type BlockId = typeof BlockId[keyof typeof BlockId];
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
