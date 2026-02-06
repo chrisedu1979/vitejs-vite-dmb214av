@@ -33,15 +33,20 @@ export interface ShiftData {
   operationType: OperationType;
 }
 
-export const BlockId = {
-  PRE_SHIFT: 'PRE_SHIFT',
-  OPERATION: 'OPERATION',
-  TECHNICAL: 'TECHNICAL',
-  LEADERSHIP: 'LEADERSHIP',
-  CLOSURE: 'CLOSURE'
-} as const;
+export type BlockId =
+  | 'PRE_SHIFT'
+  | 'OPERATION'
+  | 'TECHNICAL'
+  | 'LEADERSHIP'
+  | 'CLOSURE';
 
-export type BlockId = typeof BlockId[keyof typeof BlockId];
+export const BlockId = {
+  PRE_SHIFT: 'PRE_SHIFT' as BlockId,
+  OPERATION: 'OPERATION' as BlockId,
+  TECHNICAL: 'TECHNICAL' as BlockId,
+  LEADERSHIP: 'LEADERSHIP' as BlockId,
+  CLOSURE: 'CLOSURE' as BlockId,
+};
 
 // --- CONSTANTS ---
 export const INITIAL_BLOCKS: Block[] = [
