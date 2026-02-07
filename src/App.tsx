@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { CheckCircle, AlertTriangle, MinusCircle, ChevronRight, ChevronLeft, Save, BrainCircuit, RotateCcw, Settings, HardHat, Calendar } from 'lucide-react';
+import { CheckCircle, AlertTriangle, MinusCircle, ChevronRight, ChevronLeft, Save, BrainCircuit, RotateCcw, Settings, HardHat, Calendar, Printer } from 'lucide-react';
 
 // --- TYPES & ENUMS ---
 export type TaskStatus = 'CUMPLIDO' | 'NO_APLICA' | 'DESVIACION';
@@ -549,5 +549,6 @@ const App: React.FC = () => {
     </div>
   );
 };
+
 
 export default App;
