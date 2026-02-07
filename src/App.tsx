@@ -452,6 +452,13 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            <button
+              onClick={() => window.print()}
+              className="w-full flex items-center justify-center gap-3 py-5 bg-slate-800 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-700 transition-all shadow-xl active:scale-95 border border-white/10"
+            >
+              <Printer className="w-4 h-4 text-[#FACC15]" /> IMPRIMIR REPORTE
+            </button>
+
             <button 
               onClick={startNewShift}
               className="w-full flex items-center justify-center gap-3 py-5 bg-[#4169E1] text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#3458c7] transition-all shadow-xl active:scale-95 border-b-4 border-black/20"
@@ -552,3 +559,4 @@ const App: React.FC = () => {
 
 
 export default App;
+
